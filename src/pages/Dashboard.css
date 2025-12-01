@@ -41,10 +41,10 @@
 .main-container {
   background-color: #E8E8E8;
   border-radius: 40px;
-  padding: 40px;
+  padding: 70px;
   max-width: 1000px;
-  margin: 0 auto;
-  min-height: 500px;
+  margin: 190px auto auto auto;
+  min-height: 160px;
 }
 
 /* Perfil do Usuário */
@@ -79,19 +79,9 @@
   margin-bottom: 40px;
   display: flex;
   justify-content: center;
-}
-
-.search-bar {
-  width: 100%;
-  max-width: 600px;
-  height: 70px;
-  background-color: #0066FF;
-  border: none;
-  border-radius: 35px;
-  padding: 0 30px;
-  font-size: 18px;
-  color: white;
-  outline: none;
+  background-color: #006FFF;
+  border-radius: 32px;
+  min-height: 90px;
 }
 
 .search-bar::placeholder {

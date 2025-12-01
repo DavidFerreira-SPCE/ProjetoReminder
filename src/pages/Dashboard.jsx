@@ -34,25 +34,23 @@ function Dashboard() {
         {/* Perfil do Usuário */}
         <div className="user-profile">
           <div className="user-avatar"></div>
-          <div className="user-name">{user?.name || 'Usuário'}</div>
+          <div className="user-name">
+            {user?.name ? `Boas-Vindas, ${user.name}!` : 'Boas-Vindas, Usuário!'}
+          </div>
         </div>
 
         {/* Barra de Pesquisa */}
         <div className="search-container">
-          <input 
-            type="text" 
-            className="search-bar" 
-            placeholder="Pesquisar produtos..."
-          />
+          <h1>O QUE DESEJA FAZER AGORA?</h1>
         </div>
 
         {/* Botões de Ação */}
         <div className="action-buttons">
           <button className="btn-action">
-            CADASTRAR<br/>PRODUTO(S)
+            CADASTRAR<br />PRODUTO(S)
           </button>
           <button className="btn-action">
-            GERENCIAR<br/>ESTOQUE
+            GERENCIAR<br />ESTOQUE
           </button>
         </div>
       </div>
