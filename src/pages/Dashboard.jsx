@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import './Dashboard.css'
+import reminder from '../assets/reminder-logo.svg'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -23,7 +24,9 @@ function Dashboard() {
     <div className="dashboard-page">
       {/* Header Superior */}
       <header className="top-header">
-        <div className="logo-placeholder"></div>
+        <div className="logo-placeholder">
+          <img src={reminder} alt="Logo Remind"/>
+        </div>
         <button className="btn-logout-top" onClick={handleLogout}>
           Sair
         </button>
@@ -33,7 +36,9 @@ function Dashboard() {
       <div className="main-container">
         {/* Perfil do Usuário */}
         <div className="user-profile">
-          <div className="user-avatar"></div>
+          <div className="user-avatar">
+            <h2 id='teste'>N/A</h2>
+          </div>
           <div className="user-name">
             {user?.name ? `Boas-Vindas, ${user.name}!` : 'Boas-Vindas, Usuário!'}
           </div>

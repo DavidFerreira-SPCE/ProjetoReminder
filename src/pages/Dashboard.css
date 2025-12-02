@@ -14,9 +14,9 @@
 }
 
 .logo-placeholder {
+  padding: 12px;
   width: 280px;
   height: 90px;
-  background-color: #C2F400;
   border-radius: 30px;
 }
 
@@ -61,12 +61,15 @@
   background-color: #5F6368;
   border-radius: 50%;
 }
-
+#user-avatar-picture {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
 .user-name {
+  color: #a74606;
   height: 40px;
-  background-color: #6B7B3E;
-  color: white;
-  padding: 0 30px;
+  padding: 10px;
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -76,10 +79,10 @@
 
 /* Barra de Pesquisa */
 .search-container {
-  margin-bottom: 40px;
+  color: #323436e5;
+  margin-bottom: 60px;
   display: flex;
   justify-content: center;
-  background-color: #006FFF;
   border-radius: 32px;
   min-height: 90px;
 }
@@ -145,4 +148,10 @@
     height: 120px;
     font-size: 18px;
   }
+}
+
+#teste{
+  margin-top: 2px;
+  padding: 6px;
+  color:#FF0000
 }
