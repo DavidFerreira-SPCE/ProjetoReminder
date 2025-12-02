@@ -61,6 +61,18 @@ function Dashboard() {
             className="btn-action"
             onClick={() => navigate('/EstoqueProdutos')}
           >
+            EDITAR<br/>PRODUTO(S)
+          </button>
+                    <button 
+            className="btn-action"
+            onClick={() => navigate('/EstoqueProdutos')}
+          >
+            GERENCIAR<br/>PEDIDOS
+          </button>
+                    <button 
+            className="btn-action"
+            onClick={() => navigate('/EstoqueProdutos')}
+          >
             GERENCIAR<br/>ESTOQUE
           </button>
         </div>

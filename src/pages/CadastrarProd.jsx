@@ -34,7 +34,7 @@ function RegisterProduct() {
     const newProduct = {
       id: Date.now(),
       name: formData.name,
-      description: formData.description,
+      branch: formData.branch,
       quantity: parseInt(formData.quantity),
       price: parseFloat(formData.price || 0),
       createdAt: new Date().toISOString()
@@ -91,10 +91,11 @@ function RegisterProduct() {
               <input
                 type="text"
                 name="description"
-                placeholder="Descrição"
-                value={formData.description}
+                placeholder="Marca Do Produto *"
+                value={formData.branch}
                 onChange={handleInputChange}
                 className="form-input"
+                required
               />
             </div>
 
@@ -112,7 +113,7 @@ function RegisterProduct() {
               <input
                 type="number"
                 name="price"
-                placeholder="Preço"
+                placeholder="Preço(R$)"
                 value={formData.price}
                 onChange={handleInputChange}
                 className="form-input-small"

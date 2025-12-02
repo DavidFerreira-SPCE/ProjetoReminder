@@ -5,12 +5,42 @@ import reminder from '../assets/reminder-logo.svg'
 
 function EstoqueProdutos() {
   const navigate = useNavigate()
-  const [products, setProducts] = useState([])
+  
+  // Iniciando com dados falsos para teste visual
+  const [products, setProducts] = useState([
+    { 
+      id: 1, 
+      name: 'Notebook Dell Latitude', 
+      description: 'Notebook i7, 16GB RAM', 
+      quantity: 5, 
+      price: 4500.00 
+    },
+    { 
+      id: 2, 
+      name: 'Mouse Logitech MX', 
+      description: 'Mouse sem fio ergonômico', 
+      quantity: 12, 
+      price: 350.50 
+    },
+    { 
+      id: 3, 
+      name: 'Teclado Mecânico', 
+      description: 'Switch Blue, RGB', 
+      quantity: 8, 
+      price: 250.00 
+    }
+  ])
+  
   const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
-    loadProducts()
-  }, [])
+    // Verificar se há token válido
+    const token = localStorage.getItem('token')
+    if (!token) {
+      navigate('/login')
+      return
+    } loadProducts() 
+  }, [navigate])
 
   const loadProducts = () => {
     const storedProducts = JSON.parse(localStorage.getItem('products') || '[]')
@@ -26,9 +56,14 @@ function EstoqueProdutos() {
   }
 
   const handleEdit = (product) => {
-    // Armazenar produto para edição
     localStorage.setItem('editingProduct', JSON.stringify(product))
-    navigate('/register-product', { state: { editing: true, product } })
+    navigate('/cadastrar-produto', { state: { editing: true, product } })
+  }
+
+  const handleAddProduct = () => {
+    // Limpar qualquer produto em edição
+    localStorage.removeItem('editingProduct')
+    navigate('/cadastrar-produto')
   }
 
   const filteredProducts = products.filter(product =>
@@ -62,17 +97,15 @@ function EstoqueProdutos() {
 
         <div className="stock-container">
           <h2 className="stock-title">ESTOQUE DOS PRODUTOS</h2>
-          <p className="stock-subtitle">PLACEHOLDER</p>
-
           <div className="stock-content">
             {products.length === 0 ? (
               <div className="empty-state">
-                <p>Nenhum produto cadastrado ainda.</p>
+                <p>Nenhum produto cadastrado para visualização.</p>
                 <button 
                   className="btn-add-product"
-                  onClick={() => navigate('/register-product')}
+                  onClick={() => navigate('/CadastrarProd')}
                 >
-                  Cadastrar Primeiro Produto
+                  Cadastrar Produto
                 </button>
               </div>
             ) : (
@@ -106,7 +139,7 @@ function EstoqueProdutos() {
                         onClick={() => handleDelete(product.id)}
                         title="Excluir"
                       >
-                        🗑️
+                        X
                       </button>
                     </div>
                   </div>

@@ -14,13 +14,13 @@ function Login() {
       return
     }
 
-    if (mail === 'admin@remind.com' && password === 'abner123456') {
-      alert("Login de admin realizado com sucesso!")
-      localStorage.setItem('token', 'admin-token')
-      localStorage.setItem('user', JSON.stringify({ name: 'Admin', email: mail }))
-      navigate('/dashboard')
-      return
-    }
+if (mail === 'admin@remind.com' && password === 'abner123456') {
+    alert("Login de admin realizado com sucesso!")
+    localStorage.setItem('token', 'token-admin-123') 
+    localStorage.setItem('user', JSON.stringify({ name: 'Admin', email: mail }))   
+    navigate('/dashboard')
+    return
+}
 
     try {
       const response = await api.post('/sessions', {
