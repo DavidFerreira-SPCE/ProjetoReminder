@@ -51,11 +51,17 @@ function Dashboard() {
 
         {/* Botões de Ação */}
         <div className="action-buttons">
-          <button className="btn-action">
-            CADASTRAR<br />PRODUTO(S)
+          <button 
+            className="btn-action"
+            onClick={() => navigate('/CadastrarProd')}
+          >
+            CADASTRAR<br/>PRODUTO(S)
           </button>
-          <button className="btn-action">
-            GERENCIAR<br />ESTOQUE
+          <button 
+            className="btn-action"
+            onClick={() => navigate('/EstoqueProdutos')}
+          >
+            GERENCIAR<br/>ESTOQUE
           </button>
         </div>
       </div>
