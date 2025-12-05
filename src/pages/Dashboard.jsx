@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import './Dashboard.css'
-import reminder from '../assets/reminder-logo.svg'
+import images from '../assets/images.png'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -25,7 +25,7 @@ function Dashboard() {
       {/* Header Superior */}
       <header className="top-header">
         <div className="logo-placeholder">
-          <img src={reminder} alt="Logo Remind"/>
+         <img src={images} alt="Logo Remind"/>
         </div>
         <button className="btn-logout-top" onClick={handleLogout}>
           Sair
@@ -65,7 +65,7 @@ function Dashboard() {
           </button>
                     <button 
             className="btn-action"
-            onClick={() => navigate('/EstoqueProdutos')}
+            onClick={() => navigate('/GerenciarPedidos')}
           >
             GERENCIAR<br/>PEDIDOS
           </button>

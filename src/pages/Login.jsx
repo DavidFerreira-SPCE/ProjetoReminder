@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import reminder from '../assets/reminder-logo.svg'
+import images from '../assets/images.png'
 import './Login.css'
 
 function Login() {
@@ -42,11 +42,11 @@ if (mail === 'admin@remind.com' && password === 'abner123456') {
 
   return (
     <div className="home">
-      <img src={reminder} alt="Logo Remind" className="reminder-logo" />
+      <img src={images} alt="Logo Remind"/>
 
       <div className="home-container">
         <h6 className="welcome-title">
-          Boas-vindas ao controle de estoque da empresa Remind
+          Boas-vindas ao controle de estoque da empresa
         </h6>
         
         <h3>Email Do Usuário</h3>

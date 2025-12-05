@@ -121,8 +121,8 @@
   }
 
   .reminder-logo {
-    width: 250px; /* Reduz a logo no mobile */
-    padding: 15px 20px;
+    width: 80px; /* Reduz a logo no mobile */
+    padding: -10px;
   }
 
   .home-container h3 {

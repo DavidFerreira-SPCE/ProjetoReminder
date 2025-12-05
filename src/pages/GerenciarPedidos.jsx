@@ -1,32 +1,32 @@
-import React, { useState } from 'react';
-import { ArrowLeft } from 'lucide-react';
+import { useState } from 'react';
+import { ArrowLeft, Edit, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import './GerenciarPedidos.css';
 import images from '../assets/images.png'
-import './EstoqueProdutos.css';
 
-export default function StockManagementSystem() {
-  const navigate = useNavigate();
-  
-  const [stock, setStock] = useState([
+export default function OrderManagementSystem() {
+  const navigate = useNavigate()
+  const [orders, setOrders] = useState([
     {
       id: 1,
       productName: 'Notebook Dell',
       brand: 'Dell',
       category: 'Eletrônicos',
-      quantity: 15
+      qtde: 2,
+      status: 'Pendente'
     },
     {
       id: 2,
       productName: 'Mouse Logitech',
       brand: 'Logitech',
       category: 'Periféricos',
-      quantity: 32
+      qtde: 5,
+      status: 'Aprovado'
     }
   ]);
 
-  const handleAction = (id, action) => {
-    console.log(`Ação ${action} para produto ${id}`);
-    // Aqui você pode adicionar a lógica para adicionar/remover/editar
+  const handleDelete = (id) => {
+    setOrders(orders.filter(order => order.id !== id));
   };
 
   return (
@@ -34,9 +34,9 @@ export default function StockManagementSystem() {
       {/* Header */}
       <div className="header">
         <div className="logo-button">
-         <img src={images} alt="Logo Remind"/>
+           <img src={images} alt="Logo Remind"/>
         </div>
-        
+      
         <button className="back-button" onClick={() => navigate('/dashboard')}>
           <ArrowLeft size={24} />
           VOLTAR
@@ -46,10 +46,9 @@ export default function StockManagementSystem() {
       {/* Main Content */}
       <div className="main-content">
         <div className="title-wrapper">
-          <h1 className="title">GERENCIAMENTO DO ESTOQUE</h1>
+          <h1 className="title">SISTEMA DE GERENCIAMENTO DOS PEDIDOS</h1>
         </div>
 
-        {/* Table */}
         <div className="table-wrapper">
           <table className="orders-table">
             <thead>
@@ -58,41 +57,39 @@ export default function StockManagementSystem() {
                 <th>Nome Do Produto</th>
                 <th>Marca Do Produto</th>
                 <th>Categoria</th>
-                <th>Quantidade</th>
-                <th>Ações Do Estoque</th>
+                <th>Qtde</th>
+                <th>Status Do Pedido</th>
+                <th>Ações</th>
               </tr>
             </thead>
             <tbody>
-              {stock.map((item) => (
-                <tr key={item.id}>
-                  <td>{item.id}</td>
-                  <td>{item.productName}</td>
-                  <td>{item.brand}</td>
-                  <td>{item.category}</td>
-                  <td>{item.quantity}</td>
+              {orders.map((order) => (
+                <tr key={order.id}>
+                  <td>{order.id}</td>
+                  <td>{order.productName}</td>
+                  <td>{order.brand}</td>
+                  <td>{order.category}</td>
+                  <td>{order.qtde}</td>
+                  <td>{order.status}</td>
                   <td>
                     <div className="actions">
-                      <button 
-                        className="btn-stock"
-                        onClick={() => handleAction(item.id, 'edit')}
-                        title="Adicionar ao Estoque"
-                      >
-                        Editar
+                      <button className="btn-edit">
+                        <Edit size={20} />
                       </button>
                       <button 
-                        className="btn-stock"
-                        onClick={() => handleAction(item.id, 'remove')}
-                        title="Remover do Estoque"
+                        onClick={() => handleDelete(order.id)}
+                        className="btn-delete"
                       >
-                        Remover
+                        <Trash2 size={20} />
                       </button>
                     </div>
                   </td>
                 </tr>
               ))}
               {/* Empty rows */}
-              {[...Array(6 - stock.length)].map((_, index) => (
+              {[...Array(6 - orders.length)].map((_, index) => (
                 <tr key={`empty-${index}`} className="empty-row">
+                  <td>&nbsp;</td>
                   <td>&nbsp;</td>
                   <td>&nbsp;</td>
                   <td>&nbsp;</td>

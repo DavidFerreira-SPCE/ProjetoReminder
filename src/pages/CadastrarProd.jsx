@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import './CadastrarProd.css'
-import reminder from '../assets/reminder-logo.svg'
+import images from '../assets/images.png'
 
 function RegisterProduct() {
   const navigate = useNavigate()
@@ -58,11 +58,8 @@ function RegisterProduct() {
       {/* Header Superior */}
       <header className="top-header">
         <div className="logo-placeholder">
-          <img src={reminder} alt="Logo Remind"/>
+          <img src={images} alt="Logo Remind"/>
         </div>
-        <button className="btn-logout-top" onClick={handleLogout}>
-          Sair
-        </button>
       </header>
 
       {/* Container Principal */}

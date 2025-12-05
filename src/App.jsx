@@ -3,6 +3,7 @@ import Login from './pages/Login.jsx'
 import Dashboard from './pages/Dashboard.jsx'
 import CadastrarProd from './pages/CadastrarProd.jsx'
 import EstoqueProdutos from './pages/EstoqueProdutos.jsx'
+import GerenciarPedidos from './pages/GerenciarPedidos.jsx'
 import './index.css'
 
 function App() {
@@ -48,6 +49,15 @@ function App() {
           </ProtectedRoute>
         } 
       />
+      <Route 
+        path="/GerenciarPedidos" 
+        element={
+          <ProtectedRoute>
+            <GerenciarPedidos />
+          </ProtectedRoute>
+        } 
+      />
+      
       <Route path="*" element={<Navigate to="/login" replace />} />
     </Routes>
   )

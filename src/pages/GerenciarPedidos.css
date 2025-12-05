@@ -1,8 +1,9 @@
 /* Container Principal */
 .container {
   min-height: 100vh;
-  background: linear-gradient(135deg, #d4a574 0%, #c9975e 50%, #bf8a4d 100%);
-  padding: 1rem;
+  min-width: 100vw;
+  background-color: #bf8a4d;
+  padding: 15px;
 }
 
 /* Header */
@@ -18,15 +19,6 @@
   border-radius: 2rem;
   padding: 1.25rem 3rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.logo-image {
-  height: 32px;
-  width: auto;
-
 }
 
 .logo-text {
@@ -60,14 +52,14 @@
 
 /* Main Content */
 .main-content {
-  background: linear-gradient(135deg, #d4a05a 0%, #c99550 50%, #b88946 100%);
+  background: linear-gradient(135deg, #8b5a2b 0%, #7a4a1f 50%, #6d4019 100%);
   border-radius: 2rem;
   padding: 2.5rem;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
 }
 
 .title-wrapper {
-  background: linear-gradient(135deg, #c49a62 0%, #b5895a 100%);
+  background: linear-gradient(135deg, #9d6b3a 0%, #8b5a2b 100%);
   border-radius: 1.5rem;
   padding: 1.25rem 2rem;
   margin-bottom: 2rem;
@@ -137,38 +129,47 @@
   border-right: none;
 }
 
-/* Actions for Stock Management */
+/* Actions */
 .actions {
   display: flex;
   gap: 0.75rem;
   justify-content: center;
 }
 
-.btn-stock {
-  border-radius: 8px;
-  width: 80px;
+.btn-edit,
+.btn-delete {
+  border-radius: 50%;
+  width: 40px;
   height: 40px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border: 2px solid rgba(255, 255, 255, 0.3);
   cursor: pointer;
-  transition: all 0.1s ease;
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
-  font-weight: bold;
-  color: white;
-  background: linear-gradient(135deg, #4dd0e1 0%, #26c6da 100%);
 }
 
-.btn-stock:hover {
+.btn-edit {
+  background: linear-gradient(135deg, #4dd0e1 0%, #26c6da 100%);
+  color: white;
+}
+
+.btn-edit:hover {
   background: linear-gradient(135deg, #26c6da 0%, #00acc1 100%);
   transform: scale(1.1);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-.btn-stock:active {
-  transform: scale(0.95);
+.btn-delete {
+  background: linear-gradient(135deg, #ef5350 0%, #e53935 100%);
+  color: white;
+}
+
+.btn-delete:hover {
+  background: linear-gradient(135deg, #e53935 0%, #c62828 100%);
+  transform: scale(1.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Responsive */
@@ -194,18 +195,14 @@
     padding: 0.5rem;
   }
 
-  .btn-stock {
+  .btn-edit,
+  .btn-delete {
     width: 32px;
     height: 32px;
-    font-size: 1.25rem;
   }
 
   .logo-button {
     padding: 0.875rem 1.5rem;
-  }
-
-  .logo-image {
-    height: 24px;
   }
 
   .back-button {
